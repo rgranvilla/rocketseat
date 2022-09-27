@@ -13,7 +13,7 @@ function Post() {
             }
           />
           <div className={styles.authorInfo}>
-            <strong>Ricardo Granvilla</strong>
+            <strong>Andressa Magalhães</strong>
             <span>Web Developer</span>
           </div>
         </div>
@@ -50,9 +50,12 @@ function Post() {
           <button type="submit">Publicar</button>
         </footer>
       </form>
-      <Comment />
-      <Comment />
-      <Comment />
+
+      <div className={styles.commnetList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   )
 }

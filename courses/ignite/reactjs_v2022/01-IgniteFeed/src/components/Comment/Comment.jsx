@@ -8,27 +8,34 @@ function Comment() {
       <aside>
         <img
           className={styles.avatar}
+          title="John Doe"
           src={
             'https://images.unsplash.com/photo-1618077360395-f3068be8e001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
           }
         />
       </aside>
-      <main>
+      <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
-            <div className={styles.headerInfo}>
+            <div className={styles.authorAndTime}>
               <strong>
-                Ricardo Granvilla <span>(você)</span>
+                John Doe <span>(você)</span>
               </strong>
               <time
                 className={styles.commentTime}
                 title="27 de setembro às 12:17h"
                 dateTime="2022-09-27 12:17:30"
               >
-                Cerca de 2h
+                Cerca de 2h atrás
               </time>
             </div>
-            <Trash />
+            <button
+              type="button"
+              className={styles.deleteButton}
+              title="Deletar comentário"
+            >
+              <Trash size={20} />
+            </button>
           </header>
           <content>
             <p>Muito bom Ricardo, parabéns!!👏👏</p>
@@ -36,11 +43,13 @@ function Comment() {
         </div>
         <footer className={styles.footer}>
           <button type="button">
-            <ThumbsUp size={20} />
-            Aplaudir • 03
+            <ThumbsUp size={24} />
+            Aplaudir
+            <span />
+            03
           </button>
         </footer>
-      </main>
+      </div>
     </div>
   )
 }

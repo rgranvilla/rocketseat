@@ -2,17 +2,16 @@
   color: var(--gray-100);
   display: flex;
   gap: 1rem;
-  padding-top: 2rem;
 }
 
 .avatar {
-  width: calc(3rem + 12px);
-  height: calc(3rem + 12px);
+  width: 3rem;
+  height: 3rem;
   border-radius: 8px;
   object-fit: cover;
 }
 
-.comment main {
+.commentBox {
   width: 100%;
 }
 
@@ -29,17 +28,17 @@
   justify-content: space-between;
 }
 
-.headerInfo {
+.authorAndTime {
   display: flex;
   flex-direction: column;
 }
 
-.headerInfo strong {
+.authorAndTime strong {
   font-size: 0.875rem;
   color: var(--gray-100);
   line-height: 1.6;
 }
-.headerInfo strong span {
+.authorAndTime strong span {
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--gray-400);
@@ -47,13 +46,27 @@
 }
 
 .commentTime {
-  font-size: 0.625rem;
+  font-size: 0.7 5rem;
   color: var(--gray-400);
   line-height: 1.6;
 }
 
-.commentContent header svg {
+.deleteButton {
+  background: transparent;
+  border: 0;
   color: var(--gray-400);
+  height: fit-content;
+  line-height: 0;
+  border-radius: 2px;
+  transition: color 0.1s;
+}
+
+.deleteButton:hover {
+  color: var(--red-500);
+}
+
+.deleteButton:focus:hover {
+  box-shadow: 0 0 0 2px var(--red-500);
 }
 
 .commentContent content {
@@ -65,7 +78,6 @@
 
 .commentContent content p {
   color: var(--gray-300);
-  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -81,6 +93,11 @@
   gap: 0.625rem;
   border: 0;
   transition: color 0.1s;
+  border-radius: 2px;
+}
+
+.footer button span::before {
+  content: '\2022';
 }
 
 .footer button:hover {

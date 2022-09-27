@@ -129,3 +129,10 @@ header {
 .commentForm button[type='submit']:hover {
   background: var(--green-300);
 }
+
+.commnetList {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
