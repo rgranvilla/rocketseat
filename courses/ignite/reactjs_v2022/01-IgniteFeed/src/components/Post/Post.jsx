@@ -1,3 +1,4 @@
+import { Comment } from '../Comment/Comment'
 import styles from './Post.module.css'
 
 function Post() {
@@ -49,6 +50,9 @@ function Post() {
           <button type="submit">Publicar</button>
         </footer>
       </form>
+      <Comment />
+      <Comment />
+      <Comment />
     </article>
   )
 }
