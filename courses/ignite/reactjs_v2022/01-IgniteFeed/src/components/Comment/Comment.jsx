@@ -1,4 +1,5 @@
 import { ThumbsUp, Trash } from 'phosphor-react'
+import { Avatar } from '../Avatar/Avatar'
 
 import styles from './Comment.module.css'
 
@@ -6,8 +7,8 @@ function Comment() {
   return (
     <div className={styles.comment}>
       <aside>
-        <img
-          className={styles.avatar}
+        <Avatar
+          hasBorder={false}
           title="John Doe"
           src={
             'https://images.unsplash.com/photo-1618077360395-f3068be8e001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
