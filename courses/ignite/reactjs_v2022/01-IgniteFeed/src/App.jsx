@@ -1,9 +1,13 @@
+import { Header } from './components/Header'
+import { Layout } from './components/Layout'
+
 import './styles/global.css'
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <Header />
+      <Layout />
     </>
   )
 }
