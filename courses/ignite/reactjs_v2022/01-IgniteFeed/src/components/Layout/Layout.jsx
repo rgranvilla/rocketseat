@@ -1,4 +1,6 @@
-import { Sidebar } from '../Sidebar/Sidebar'
+import { Sidebar } from '../Sidebar/'
+import { Post } from '../Post/'
+
 import styles from './Layout.module.css'
 
 function Layout() {
@@ -7,13 +9,8 @@ function Layout() {
       <Sidebar />
 
       <main>
-        <h1>Ricardo G.</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium
-          mollitia, neque blanditiis ipsum iusto quos molestiae sint minima
-          laboriosam commodi itaque magni velit voluptates eius odio fugit iste
-          animi! Sed.
-        </p>
+        <Post />
+        <Post />
       </main>
     </div>
   )

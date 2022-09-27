@@ -1,0 +1,80 @@
+.post {
+  background: var(--gray-800);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 2.5rem;
+}
+
+.post + .post {
+  margin-top: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author {
+  display: flex;
+  gap: 1rem;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorInfo strong {
+  padding-top: 0.5rem;
+  color: var(--gray-100);
+  line-height: 1.6;
+}
+
+.authorInfo span {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+.postTime {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.avatar {
+  width: calc(3rem + 12px);
+  height: calc(3rem + 12px);
+  border-radius: 8px;
+  border: 4px solid var(--gray-800);
+  outline: 2px solid var(--green-500);
+  object-fit: cover;
+}
+
+.content {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content p {
+  color: var(--gray-300);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.hash a,
+.contact a {
+  text-decoration: none;
+  color: var(--green-500);
+
+  font-weight: 700;
+  line-height: 1.6;
+
+  transition: color 0.1s;
+}
+
+.hash a:hover,
+.contact a:hover {
+  color: var(--green-300);
+}
