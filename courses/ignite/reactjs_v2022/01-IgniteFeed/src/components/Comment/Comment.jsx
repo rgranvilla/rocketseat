@@ -8,7 +8,7 @@ import { Avatar } from '../Avatar/Avatar';
 import styles from './Comment.module.css';
 
 function Comment({ author, likes, commentAt, comment, onDelete }) {
-  const [like, setLike] = useState(likes);
+  const [likeCount, setLikeCount] = useState(likes);
 
   const { name, avatarUrl } = author;
 
@@ -25,8 +25,10 @@ function Comment({ author, likes, commentAt, comment, onDelete }) {
     addSuffix: true
   });
 
-  function handleLike() {
-    setLike(like + 1);
+  function handleLikeCount() {
+    setLikeCount(state => {
+      return state + 1;
+    });
   }
 
   return (
@@ -61,11 +63,11 @@ function Comment({ author, likes, commentAt, comment, onDelete }) {
           </div>
         </div>
         <footer className={styles.footer}>
-          <button type="button" onClick={handleLike}>
+          <button type="button" onClick={handleLikeCount}>
             <ThumbsUp size={24} />
             Aplaudir
             <span />
-            {like}
+            {likeCount}
           </button>
         </footer>
       </div>
