@@ -1,7 +1,8 @@
-import { Sidebar } from '../Sidebar/'
-import { Post } from '../Post/'
+import { Sidebar } from '../Sidebar/';
+import { Post } from '../Post/';
 
-import styles from './Layout.module.css'
+import styles from './Layout.module.css';
+import { data } from '../../data';
 
 function Layout() {
   return (
@@ -9,10 +10,11 @@ function Layout() {
       <Sidebar />
 
       <main>
-        <Post />
-        <Post />
+        {data.map(item => (
+          <Post key={item.id} data={item} />
+        ))}
       </main>
     </div>
-  )
+  );
 }
-export { Layout }
+export { Layout };

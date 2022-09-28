@@ -62,14 +62,14 @@
   box-shadow: 0 0 0 2px var(--red-500);
 }
 
-.commentContent content {
+.commentContent > div {
   padding-top: 1rem;
   color: var(--gray-300);
   font-weight: 400;
   line-height: 1.6;
 }
 
-.commentContent content p {
+.commentContent > div p {
   color: var(--gray-300);
   line-height: 1.6;
 }

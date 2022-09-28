@@ -1,33 +1,50 @@
-import { ThumbsUp, Trash } from 'phosphor-react'
-import { Avatar } from '../Avatar/Avatar'
+import { useState } from 'react';
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+import { ThumbsUp, Trash } from 'phosphor-react';
 
-import styles from './Comment.module.css'
+import { Avatar } from '../Avatar/Avatar';
 
-function Comment() {
+import styles from './Comment.module.css';
+
+function Comment({ author, likes, commentAt, comment }) {
+  const [like, setLike] = useState(likes);
+
+  const { name, avatarUrl } = author;
+
+  const publishedDateFormatted = format(
+    commentAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR
+    }
+  );
+
+  const commentDateRelativeToNow = formatDistanceToNow(commentAt, {
+    locale: ptBR,
+    addSuffix: true
+  });
+
+  function handleLike() {
+    setLike(like + 1);
+  }
+
   return (
     <div className={styles.comment}>
       <aside>
-        <Avatar
-          hasBorder={false}
-          title="John Doe"
-          src={
-            'https://images.unsplash.com/photo-1618077360395-f3068be8e001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
-          }
-        />
+        <Avatar hasBorder={false} title="John Doe" src={avatarUrl} />
       </aside>
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>
-                John Doe <span>(você)</span>
-              </strong>
+              <strong>{name}</strong>
               <time
                 className={styles.commentTime}
-                title="27 de setembro às 12:17h"
-                dateTime="2022-09-27 12:17:30"
+                title={publishedDateFormatted}
+                dateTime={commentAt.toISOString()}
               >
-                Cerca de 2h atrás
+                {commentDateRelativeToNow}
               </time>
             </div>
             <button
@@ -38,21 +55,21 @@ function Comment() {
               <Trash size={20} />
             </button>
           </header>
-          <content>
-            <p>Muito bom Ricardo, parabéns!!👏👏</p>
-          </content>
+          <div>
+            <p>{comment}</p>
+          </div>
         </div>
         <footer className={styles.footer}>
-          <button type="button">
+          <button type="button" onClick={handleLike}>
             <ThumbsUp size={24} />
             Aplaudir
             <span />
-            03
+            {like}
           </button>
         </footer>
       </div>
     </div>
-  )
+  );
 }
 
-export { Comment }
+export { Comment };
