@@ -7,7 +7,7 @@ import { Avatar } from '../Avatar/Avatar';
 
 import styles from './Comment.module.css';
 
-function Comment({ author, likes, commentAt, comment }) {
+function Comment({ author, likes, commentAt, comment, onDelete }) {
   const [like, setLike] = useState(likes);
 
   const { name, avatarUrl } = author;
@@ -49,6 +49,7 @@ function Comment({ author, likes, commentAt, comment }) {
             </div>
             <button
               type="button"
+              onClick={onDelete}
               className={styles.deleteButton}
               title="Deletar comentário"
             >

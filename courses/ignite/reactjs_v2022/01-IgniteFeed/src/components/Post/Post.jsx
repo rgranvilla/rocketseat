@@ -52,6 +52,10 @@ function Post({ data }) {
     setNewCommentText(newComment);
   }
 
+  function handleDeleteComment(commentId) {
+    setComments(comments.filter(comment => comment.id !== commentId));
+  }
+
   return (
     <article className={styles.post}>
       <header>
@@ -129,6 +133,7 @@ function Post({ data }) {
                   comment={comment}
                   commentAt={commentAt}
                   postId={postId}
+                  onDelete={() => handleDeleteComment(commentId)}
                 />
               );
           }
