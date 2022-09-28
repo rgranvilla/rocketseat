@@ -48,13 +48,20 @@ function Post({ data }) {
     setNewCommentText('');
   }
 
-  function handleNewCommentText(newComment) {
-    setNewCommentText(newComment);
+  function handleNewCommentText(event) {
+    event.target.setCustomValidity('');
+    setNewCommentText(event.target.value);
   }
 
   function handleDeleteComment(commentId) {
     setComments(comments.filter(comment => comment.id !== commentId));
   }
+
+  function handleNewCommentInvalid(event) {
+    event.target.setCustomValidity('Este campo é obrigatório!');
+  }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -111,12 +118,16 @@ function Post({ data }) {
         <textarea
           name="comment"
           value={newCommentText}
-          onChange={event => handleNewCommentText(event.target.value)}
+          onChange={event => handleNewCommentText(event)}
           placeholder="Deixe um comentário"
+          required
+          onInvalid={event => handleNewCommentInvalid(event)}
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
 
